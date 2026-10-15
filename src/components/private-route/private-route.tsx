@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
+import { AppRoute } from '../../routes';
 
 type PrivateRouteProps = {
   children: ReactElement;
@@ -10,4 +11,4 @@ export const PrivateRoute = ({
   children,
   isAuthorised,
 }: PrivateRouteProps) =>
-  isAuthorised ? children : <Navigate to='/login' replace/>;
+  isAuthorised ? children : <Navigate to={AppRoute.Login} replace/>;
