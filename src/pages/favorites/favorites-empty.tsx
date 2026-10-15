@@ -1,5 +1,5 @@
-import { Footer } from '../../components/layout/footer/footer';
-import { Header } from '../../components/layout/header/header';
+import { Footer } from '../../components/layout/footer';
+import { Header } from '../../components/layout/header';
 
 export const FavoritesEmpty = () => (
   <div className="page page--favorites-empty">
@@ -17,6 +17,6 @@ export const FavoritesEmpty = () => (
         </section>
       </div>
     </main>
-    <Footer/>
+    <Footer />
   </div>
 );

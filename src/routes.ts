@@ -5,3 +5,5 @@ export const AppRoute = {
   Offer: '/offer/:id',
   NotFound: '*',
 } as const;
+
+export const buildOfferPath = (id: string) => `/offer/${id}`;

@@ -6,27 +6,28 @@ import { Offer } from './pages/offer/offer';
 import { Favorites } from './pages/favorites/favorites';
 import { PrivateRoute } from './components/private-route/private-route';
 import { AppRoute } from './routes';
+import { OfferPreview } from './types/offer';
 
 interface AppProps {
-  offersCount: number;
   isAuthorised: boolean;
+  offers: OfferPreview[];
 }
 
-export const App = ({ offersCount, isAuthorised }: AppProps) => (
+export const App = ({ isAuthorised, offers }: AppProps) => (
   <BrowserRouter>
     <Routes>
-      <Route index element={<Main offersCount={offersCount} />} />
+      <Route index element={<Main offers={offers} />} />
       <Route path={AppRoute.Login} element={<Login />} />
-      <Route path={AppRoute.Offer} element={<Offer />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path={AppRoute.Offer} element={<Offer offers={offers} />} />
       <Route
         path={AppRoute.Favorites}
         element={
           <PrivateRoute isAuthorised={isAuthorised}>
-            <Favorites />
+            <Favorites offers={offers} />
           </PrivateRoute>
         }
       />
+      <Route path="*" element={<NotFound />} />s
     </Routes>
   </BrowserRouter>
 );
