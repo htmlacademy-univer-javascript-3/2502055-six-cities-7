@@ -2,12 +2,17 @@ import { Footer } from '../../components/layout/footer';
 import { Header } from '../../components/layout/header';
 import { OfferCard } from '../../components/offer-card/offer-card';
 import type { OfferPreview } from '../../types/offer';
+import { FavoritesEmpty } from './favorites-empty';
 
 interface FavoritesProps {
   offers: OfferPreview[];
 }
 
 export const Favorites = ({ offers }: FavoritesProps) => {
+  if (offers.length === 0) {
+    return <FavoritesEmpty />;
+  }
+
   const grouped = offers.reduce<Record<string, OfferPreview[]>>(
     (acc, offer) => {
       const city = offer.city.name;

@@ -3,19 +3,24 @@ import { Header } from '../../components/layout/header';
 import { OfferCard } from '../../components/offer-card/offer-card';
 import { ReviewForm } from '../../components/review-form/review-form';
 import { NotFound } from '../not-found/not-found';
-import type { OfferPreview } from '../../types/offer';
+import { OFFER_TYPE_LABELS } from '../../constants';
+import type { OfferDetail, OfferPreview } from '../../types/offer';
 
 interface OfferProps {
+  details: OfferDetail[];
   offers: OfferPreview[];
+  isAuthorised: boolean;
 }
 
-export const Offer = ({ offers }: OfferProps) => {
+export const Offer = ({ details, offers, isAuthorised }: OfferProps) => {
   const { id } = useParams<{ id: string }>();
-  const offer = offers.find((o) => o.id === id);
+  const offer = details.find((o) => o.id === id);
 
   if (!offer) {
     return <NotFound />;
   }
+
+  const nearOffers = offers.filter((o) => o.id !== offer.id).slice(0, 3);
 
   return (
     <div className="page">
@@ -62,7 +67,7 @@ export const Offer = ({ offers }: OfferProps) => {
               </div>
               <ul className="offer__features">
                 <li className="offer__feature offer__feature--entire">
-                  {offer.type}
+                  {OFFER_TYPE_LABELS[offer.type]}
                 </li>
                 <li className="offer__feature offer__feature--bedrooms">
                   {offer.bedrooms} Bedrooms
@@ -146,7 +151,7 @@ export const Offer = ({ offers }: OfferProps) => {
                     </div>
                   </li>
                 </ul>
-                <ReviewForm />
+                {isAuthorised && <ReviewForm />}
               </section>
             </div>
           </div>
@@ -158,16 +163,13 @@ export const Offer = ({ offers }: OfferProps) => {
               Other places in the neighbourhood
             </h2>
             <div className="near-places__list places__list">
-              {offers
-                .filter((o) => o.id !== offer.id)
-                .slice(0, 3)
-                .map((nearOffer) => (
-                  <OfferCard
-                    key={nearOffer.id}
-                    offer={nearOffer}
-                    variant="near"
-                  />
-                ))}
+              {nearOffers.map((nearOffer) => (
+                <OfferCard
+                  key={nearOffer.id}
+                  offer={nearOffer}
+                  variant="near"
+                />
+              ))}
             </div>
           </section>
         </div>

@@ -17,15 +17,28 @@ export type City = {
   location: CityLocation;
 };
 
+export type OfferType = 'apartment' | 'room' | 'house' | 'hotel';
+
 export type Host = {
   name: string;
   avatarUrl: string;
   isPro: boolean;
 };
 
-export type OfferType = 'Apartment' | 'Room' | 'House' | 'Hotel';
+export type OfferPreview = {
+  id: string;
+  title: string;
+  type: OfferType;
+  price: number;
+  city: City;
+  location: CityLocation;
+  isFavorite: boolean;
+  isPremium: boolean;
+  rating: number;
+  previewImage: string;
+};
 
-export type OfferData = {
+export type OfferDetail = {
   id: string;
   title: string;
   type: OfferType;
@@ -41,8 +54,4 @@ export type OfferData = {
   host: Host;
   images: string[];
   maxAdults: number;
-};
-
-export type OfferPreview = OfferData & {
-  previewImage: string;
 };

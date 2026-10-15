@@ -9,22 +9,28 @@ const RATING_TITLES: Record<number, string> = {
   1: 'terribly',
 };
 
+type FormState = {
+  rating: number;
+  review: string;
+};
+
 export const ReviewForm = () => {
-  const [rating, setRating] = useState<number>(0);
-  const [review, setReview] = useState<string>('');
+  const [form, setForm] = useState<FormState>({
+    rating: 0,
+    review: '',
+  });
 
-  const handleRatingChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setRating(Number(e.target.value));
-  };
-
-  const handleReviewChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setReview(e.target.value);
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // eslint-disable-next-line no-console
-    console.log({ rating, review });
+    console.log({ form });
   };
 
   return (
@@ -46,8 +52,8 @@ export const ReviewForm = () => {
               value={value}
               id={`${value}-stars`}
               type="radio"
-              checked={rating === value}
-              onChange={handleRatingChange}
+              checked={form.rating === value}
+              onChange={handleChange}
             />
             <label
               htmlFor={`${value}-stars`}
@@ -66,8 +72,8 @@ export const ReviewForm = () => {
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
-        value={review}
-        onChange={handleReviewChange}
+        value={form.review}
+        onChange={handleChange}
       />
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
@@ -75,10 +81,7 @@ export const ReviewForm = () => {
           <span className="reviews__star">rating</span> and describe your stay
           with at least <b className="reviews__text-amount">50 characters</b>.
         </p>
-        <button
-          className="reviews__submit form__submit button"
-          type="submit"
-        >
+        <button className="reviews__submit form__submit button" type="submit">
           Submit
         </button>
       </div>

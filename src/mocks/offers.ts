@@ -1,11 +1,10 @@
-// src/mocks/offers.ts
 import type { OfferPreview } from '../types/offer';
 
 export const OFFERS: OfferPreview[] = [
   {
     id: '6af6f711-c28d-4121-82cd-e0b462a27f00',
     title: 'Beautiful & luxurious studio at great location',
-    type: 'Apartment',
+    type: 'apartment',
     price: 120,
     city: {
       name: 'Amsterdam',
@@ -23,40 +22,12 @@ export const OFFERS: OfferPreview[] = [
     isFavorite: false,
     isPremium: true,
     rating: 4.8,
-    description:
-      'A quiet cozy and picturesque that hides behind a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-    bedrooms: 3,
-    goods: [
-      'Wi-Fi',
-      'Washing machine',
-      'Towels',
-      'Heating',
-      'Coffee machine',
-      'Baby seat',
-      'Kitchen',
-      'Dishwasher',
-      'Cabel TV',
-      'Fridge',
-    ],
-    host: {
-      name: 'Angelina',
-      avatarUrl: '/img/avatar-angelina.jpg',
-      isPro: true,
-    },
-    images: [
-      '/img/room.jpg',
-      '/img/apartment-01.jpg',
-      '/img/apartment-02.jpg',
-      '/img/apartment-03.jpg',
-      '/img/studio-01.jpg',
-    ],
-    maxAdults: 4,
     previewImage: '/img/apartment-01.jpg',
   },
   {
     id: '8c1b1f56-2b1b-4f9a-9d5e-0f1e3a5b7c10',
     title: 'Wood and stone place',
-    type: 'Room',
+    type: 'room',
     price: 80,
     city: {
       name: 'Amsterdam',
@@ -74,23 +45,12 @@ export const OFFERS: OfferPreview[] = [
     isFavorite: true,
     isPremium: false,
     rating: 4.0,
-    description:
-      'A quiet cozy and picturesque place with wooden interior, close to the city center.',
-    bedrooms: 1,
-    goods: ['Wi-Fi', 'Heating', 'Kitchen', 'Fridge'],
-    host: {
-      name: 'Max',
-      avatarUrl: '/img/avatar-max.jpg',
-      isPro: false,
-    },
-    images: ['/img/room.jpg', '/img/apartment-01.jpg', '/img/apartment-02.jpg'],
-    maxAdults: 2,
     previewImage: '/img/room.jpg',
   },
   {
     id: '3f2a8c9d-7e6b-4c1a-8f5d-2b3c4d5e6f70',
     title: 'Canal View Prinsengracht',
-    type: 'Apartment',
+    type: 'apartment',
     price: 132,
     city: {
       name: 'Cologne',
@@ -108,23 +68,12 @@ export const OFFERS: OfferPreview[] = [
     isFavorite: false,
     isPremium: false,
     rating: 4.5,
-    description:
-      'Spacious apartment with a beautiful canal view, perfect for a couple or a small family.',
-    bedrooms: 2,
-    goods: ['Wi-Fi', 'Washing machine', 'Towels', 'Heating', 'Kitchen'],
-    host: {
-      name: 'Oliver Conner',
-      avatarUrl: '/img/avatar-max.jpg',
-      isPro: false,
-    },
-    images: ['/img/apartment-02.jpg', '/img/apartment-03.jpg', '/img/room.jpg'],
-    maxAdults: 3,
     previewImage: '/img/apartment-02.jpg',
   },
   {
     id: 'b5e4d3c2-a1b0-4f9e-8d7c-6b5a4f3e2d10',
     title: 'Nice, cozy, warm big bed apartment',
-    type: 'Apartment',
+    type: 'apartment',
     price: 180,
     city: {
       name: 'Paris',
@@ -142,31 +91,6 @@ export const OFFERS: OfferPreview[] = [
     isFavorite: true,
     isPremium: true,
     rating: 5.0,
-    description:
-      'A luxurious apartment in the heart of Paris with a big comfortable bed and a stunning view.',
-    bedrooms: 3,
-    goods: [
-      'Wi-Fi',
-      'Washing machine',
-      'Towels',
-      'Heating',
-      'Coffee machine',
-      'Kitchen',
-      'Dishwasher',
-      'Fridge',
-    ],
-    host: {
-      name: 'Angelina',
-      avatarUrl: '/img/avatar-angelina.jpg',
-      isPro: true,
-    },
-    images: [
-      '/img/apartment-03.jpg',
-      '/img/apartment-01.jpg',
-      '/img/apartment-02.jpg',
-      '/img/room.jpg',
-    ],
-    maxAdults: 4,
     previewImage: '/img/apartment-03.jpg',
   },
 ];
