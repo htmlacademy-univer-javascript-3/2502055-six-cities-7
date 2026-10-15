@@ -1,6 +1,6 @@
 import { Header } from '../../components/layout/header/header';
 
-export const MainEmptyPage = () => (
+export const MainEmpty = () => (
   <div className="page page--gray page--main">
     <Header />
     <main className="page__main page__main--index page__main--index-empty">

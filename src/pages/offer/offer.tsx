@@ -1,6 +1,6 @@
 import { Header } from '../../components/layout/header/header';
 
-export const OfferPage = () => (
+export const Offer = () => (
   <div className="page">
     <Header />
     <main className="page__main page__main--offer">
