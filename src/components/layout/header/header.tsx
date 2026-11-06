@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../../routes';
+import { AppRoute } from '@/routes';
 
 export const Header = () => (
   <header className="header">

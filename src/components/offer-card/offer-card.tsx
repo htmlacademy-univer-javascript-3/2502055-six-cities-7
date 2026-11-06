@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import type { OfferPreview } from '../../types/offer';
-import { buildOfferPath } from '../../routes';
-import { OFFER_TYPE_LABELS } from '../../constants';
+import type { OfferPreview } from '@/types/offer';
+import { buildOfferPath } from '@/routes';
+import { OFFER_TYPE_LABELS } from '@/constants';
 
 export type CardVariant = 'cities' | 'favorites' | 'near';
 
@@ -103,9 +103,7 @@ export const OfferCard = ({
         <h2 className="place-card__name">
           <Link to={buildOfferPath(offer.id)}>{offer.title}</Link>
         </h2>
-        <p className="place-card__type">
-          <p className="place-card__type">{OFFER_TYPE_LABELS[offer.type]}</p>
-        </p>
+        <p className="place-card__type">{OFFER_TYPE_LABELS[offer.type]}</p>
       </div>
     </article>
   );
