@@ -38,7 +38,7 @@ export const OFFER_DETAILS: OfferDetail[] = [
       'Fridge',
     ],
     host: {
-      name: 'Angelina',
+      name: 'Baobab',
       avatarUrl: '/img/avatar-angelina.jpg',
       isPro: true,
     },
