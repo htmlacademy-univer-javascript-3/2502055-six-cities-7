@@ -1,1 +1,1 @@
-export { OfferCard } from './offer-card';
+export { OfferCard, type CardVariant } from './offer-card';
