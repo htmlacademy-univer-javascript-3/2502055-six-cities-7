@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { Header } from '../../components/layout/header';
-import { OfferCard } from '../../components/offer-card/offer-card';
-import { ReviewForm } from '../../components/review-form/review-form';
-import { NotFound } from '../not-found/not-found';
-import { OFFER_TYPE_LABELS } from '../../constants';
-import type { OfferDetail, OfferPreview } from '../../types/offer';
+import { Header } from '@/components/layout/header';
+import { OfferCard } from '@/components/offer-card';
+import { ReviewForm } from '@/components/review-form';
+import { NotFound } from '@/pages/not-found/';
+import { OFFER_TYPE_LABELS } from '@/constants';
+import type { OfferDetail, OfferPreview } from '@/types/offer';
 
 interface OfferProps {
   details: OfferDetail[];

@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Header } from '../../components/layout/header';
-import { OffersList } from '../../components/offers-list';
-import type { OfferPreview } from '../../types/offer';
+import { Header } from '@/components/layout/header';
+import { OffersList } from '@/components/offers-list';
+import type { OfferPreview } from '@/types/offer';
 import { MainEmpty } from './main-empty';
+import { Map } from '@/components/map';
 
 interface MainPageProps {
   offers: OfferPreview[];
@@ -13,6 +14,8 @@ export const Main = ({ offers }: MainPageProps) => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
   const toggleOpened = () => setIsOpened((prev) => !prev);
+
+  const currentCity = offers[0].city;
 
   if (offers.length === 0) {
     return <MainEmpty />;
@@ -101,9 +104,10 @@ export const Main = ({ offers }: MainPageProps) => {
               <OffersList offers={offers} onCardHover={setActiveOfferId} />
             </section>
             <div className="cities__right-section">
-              <section
-                className="cities__map map"
-                data-active-offer={activeOfferId ?? ''}
+              <Map
+                city={currentCity}
+                offers={offers}
+                activeOfferId={activeOfferId}
               />
             </div>
           </div>

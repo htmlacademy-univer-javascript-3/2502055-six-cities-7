@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Login } from './pages/login/login';
-import { Main } from './pages/main/main';
-import { NotFound } from './pages/not-found';
-import { Offer } from './pages/offer/offer';
-import { Favorites } from './pages/favorites';
-import { PrivateRoute } from './components/private-route/private-route';
-import { AppRoute } from './routes';
-import type { OfferDetail, OfferPreview } from './types/offer';
+import { Login } from '@/pages/login/login';
+import { Main } from '@/pages/main/main';
+import { NotFound } from '@/pages/not-found';
+import { Offer } from '@/pages/offer/offer';
+import { Favorites } from '@/pages/favorites';
+import { PrivateRoute } from '@/components/private-route/private-route';
+import { AppRoute } from '@/routes';
+import type { OfferDetail, OfferPreview } from '@/types/offer';
 
 interface AppProps {
   isAuthorised: boolean;
@@ -29,14 +29,12 @@ export const App = ({ isAuthorised, offers, offerDetails }: AppProps) => (
           />
         }
       />
-      <Route
-        path={AppRoute.Favorites}
-        element={
-          <PrivateRoute isAuthorised={isAuthorised}>
-            <Favorites offers={offers} />
-          </PrivateRoute>
-        }
-      />
+      <Route element={<PrivateRoute isAuthorised={isAuthorised} />}>
+        <Route
+          path={AppRoute.Favorites}
+          element={<Favorites offers={offers} />}
+        />
+      </Route>
       <Route path={AppRoute.NotFound} element={<NotFound />} />
     </Routes>
   </BrowserRouter>

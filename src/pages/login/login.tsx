@@ -1,4 +1,4 @@
-import { Header } from '../../components/layout/header';
+import { Header } from '@/components/layout/header';
 
 export const Login = () => (
   <div className="page page--gray page--login">

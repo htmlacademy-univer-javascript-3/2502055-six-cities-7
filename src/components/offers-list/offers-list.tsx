@@ -1,5 +1,5 @@
-import type { OfferPreview } from '../../types/offer';
-import { OfferCard } from '../offer-card/offer-card';
+import type { OfferPreview } from '@/types/offer';
+import { OfferCard } from '@/components/offer-card/';
 
 interface OffersListProps {
   offers: OfferPreview[];
